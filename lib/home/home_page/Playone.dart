@@ -9,12 +9,11 @@ class Playone extends StatefulWidget {
 
 class _PlayoneState extends State<Playone> {
   TextEditingController _playoneController = TextEditingController();
-  TextEditingController _playtwoController = TextEditingController();
+
 
   @override
   void dispose() {
     _playoneController.dispose();
-    _playtwoController.dispose();
     super.dispose();
   }
 
@@ -54,12 +53,12 @@ class _PlayoneState extends State<Playone> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  String secretNumber = _playoneController.text;
+                  String playoneNumber = _playoneController.text;
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Playtwo(
-                        secretNumber: secretNumber,
+                        playoneNumber: playoneNumber,
                       ),
                     ),
                   );

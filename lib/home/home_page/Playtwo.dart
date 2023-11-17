@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 class Playtwo extends StatefulWidget {
-  final String secretNumber;
+  final String playoneNumber;
 
-  Playtwo({required this.secretNumber});
+  Playtwo({required this.playoneNumber});
 
   @override
   _PlaytwoState createState() => _PlaytwoState();
 }
 
 class _PlaytwoState extends State<Playtwo> {
-  TextEditingController _collectController = TextEditingController();
+  TextEditingController _playtwoController = TextEditingController();
 
   @override
   void dispose() {
-    _collectController.dispose();
+    _playtwoController.dispose();
     super.dispose();
   }
 
@@ -44,7 +44,7 @@ class _PlaytwoState extends State<Playtwo> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextFormField(
-                  controller: _collectController,
+                  controller: _playtwoController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: 'ทายเลข',
@@ -54,12 +54,12 @@ class _PlaytwoState extends State<Playtwo> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  String guessedNumber = _collectController.text;
+                  String collectNumber = _playtwoController.text;
                   String result = 'ผลลัพธ์: ';
 
-                  if (guessedNumber == widget.secretNumber) {
+                  if (collectNumber == widget.playoneNumber) {
                     result += 'ถูกต้อง!';
-                  } else if (int.parse(guessedNumber) > int.parse(widget.secretNumber)) {
+                  } else if (int.parse(collectNumber) > int.parse(widget.playoneNumber)) {
                     result += 'ผิด, เลขที่ทายมากกว่า!';
                   } else {
                     result += 'ผิด, เลขที่ทายน้อยกว่า!';
